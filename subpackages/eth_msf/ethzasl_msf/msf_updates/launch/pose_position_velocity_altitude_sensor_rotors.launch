@@ -1,0 +1,9 @@
+<!--launch file-->
+<launch>
+	<arg name="namespace"                          default="drone1" />
+   	<group ns="$(arg namespace)">
+	    <node name="msf_pose_position_velocity_altitude_sensor" pkg="msf_updates" type="pose_position_velocity_altitude_sensor" clear_params="true" output="screen">
+	            <rosparam file="$(find msf_updates)/pose_position_velocity_sensor.yaml"/>
+	    </node>
+    </group>
+</launch>

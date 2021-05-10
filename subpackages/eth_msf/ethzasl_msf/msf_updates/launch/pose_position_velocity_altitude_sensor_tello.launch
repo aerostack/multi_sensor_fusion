@@ -1,0 +1,11 @@
+<!--launch file-->
+<launch>
+    <node name="msf_pose_position_velocity_altitude_sensor" pkg="msf_updates" type="pose_position_velocity_altitude_sensor" clear_params="true" output="screen">
+			<remap from="msf_core/imu_state_input" to="drone0/sensor_measurement/imu" />	 
+   			<remap from="msf_updates/velocity" to="/drone0/velocity" />
+            <remap from="msf_updates/altitude_above_takeoff" to="/drone0/altitude" />
+            <remap from="msf_updates/pose_input" to="/drone0/pose" />
+            <!--<remap from="msf_interface/odometry" to="/drone0/odometry" />-->
+            <rosparam file="$(find msf_updates)/pose_position_velocity_sensor.yaml"/>
+    </node>
+</launch>

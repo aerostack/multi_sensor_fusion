@@ -1,0 +1,11 @@
+<!--launch file-->
+<launch>
+    <node  launch-prefix="gdb -ex run --args" name="msf_pose_velocity_altitude_sensor" pkg="msf_updates" type="pose_velocity_altitude_sensor" clear_params="true" output="screen">
+            <remap from="msf_updates/pose_input" to="/drone6/dji_pose" />
+					 	<remap from="msf_updates/velocity" to="/drone6/velocity" />
+					 	<remap from="msf_updates/altitude_above_takeoff" to="/drone6/altitude_above_takeoff" />	    		    	
+						<remap from="msf_core/imu_state_input" to="drone6/dji_sdk/imu" />	    	
+						
+            <rosparam file="$(find msf_updates)/pose_pressure_sensor_fix.yaml"/>
+    </node>
+</launch>

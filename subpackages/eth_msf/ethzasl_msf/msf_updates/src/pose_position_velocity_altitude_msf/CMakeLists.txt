@@ -1,0 +1,5 @@
+add_executable(pose_position_velocity_altitude_sensor main.cpp)
+
+target_link_libraries(pose_position_velocity_altitude_sensor pose_distorter ${catkin_LIBRARIES})
+
+add_dependencies(pose_position_velocity_altitude_sensor ${${PROJECT_NAME}_EXPORTED_TARGETS})

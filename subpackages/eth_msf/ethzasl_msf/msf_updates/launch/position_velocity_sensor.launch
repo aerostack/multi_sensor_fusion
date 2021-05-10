@@ -1,0 +1,14 @@
+<!--launch file-->
+<launch>
+    <node launch-prefix="gdb -ex run --args" name="msf_position_velocity_filter" pkg="msf_updates" type="position_velocity_sensor" clear_params="true" output="screen">
+            <!--<remap from="msf_core/hl_state_input" to="/auk/fcu/ekf_state_out" />
+            <remap from="msf_core/correction" to="/auk/fcu/ekf_state_in"/>-->
+
+	    <!--<remap from="msf_updates/position_input" to="/leica/position" />-->
+	    <remap from="msf_updates/navsatfix_input" to="drone6/dji_sdk/rtk_position" />
+			<remap from="msf_core/imu_state_input" to="drone6/dji_sdk/imu" />	    	
+		  <remap from="/velocity" to="/velocity" />	    	
+      <rosparam file="$(find msf_updates)/pose_velocity_sensor.yaml"/>
+    </node>
+</launch>
+

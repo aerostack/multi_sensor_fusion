@@ -1,0 +1,12 @@
+<!--launch file-->
+<launch>
+    <node name="msf_pose_position_velocity_altitude_sensor" pkg="msf_updates" type="pose_position_velocity_altitude_sensor" clear_params="true" output="screen">
+            <remap from="msf_updates/pose_input" to="/drone6/dji_pose" />
+						<remap from="msf_updates/position_input" to="/drone6/dji_rtk_" />	 	    		    	
+					 	<remap from="msf_updates/velocity" to="/drone6/velocity" />
+					 	<remap from="msf_updates/altitude_above_takeoff" to="/drone6/altitude_above_takeoff" />
+						<remap from="msf_core/imu_state_input" to="drone6/dji_sdk/imu" />	 
+   							
+            <rosparam file="$(find msf_updates)/pose_position_velocity_sensor.yaml"/>
+    </node>
+</launch>

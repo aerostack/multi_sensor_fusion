@@ -1,0 +1,8 @@
+<library path="lib/libmulti_sensor_fusion">
+    <class name="multi_sensor_fusion/BehaviorSelfLocalizeWithEKFSensorFusion" type="multi_sensor_fusion::BehaviorSelfLocalizeWithEKFSensorFusion"
+		base_class_type="nodelet::Nodelet">
+		<description>
+			BehaviorSelfLocalizeWithEKFSensorFusion.
+		</description>
+	</class>
+</library>
