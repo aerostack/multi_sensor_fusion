@@ -21,8 +21,6 @@
       <param name="~check_activation_conditions_srv"     value="$(arg check_activation_conditions_srv)"    type="str" />
       <param name="~behavior_system"                     value="$(arg behavior_system)"                    type="str" />
 
-       <node pkg="nodelet" type="nodelet" args="manager" name="multi_sensor_fusion_manager" output="screen" />
-       <node pkg="nodelet" type="nodelet" args="load multi_sensor_fusion/BehaviorSelfLocalizeWithEKFSensorFusion multi_sensor_fusion_manager"
-        name="behavior_self_localize_with_ekf_sensor_fusion" output="screen"/>    
+	<node name="behavior_self_localize_with_ekf_sensor_fusion" pkg="multi_sensor_fusion"  type="BehaviorSelfLocalizeWithEKFSensorFusion"  output="screen"/>  
   </group>
 </launch>

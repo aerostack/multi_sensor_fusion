@@ -27,9 +27,8 @@ set(MULTI_SENSOR_FUSION_SOURCE_FILES
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  nodelet
   std_msgs
-  behavior_execution_controller
+  behavior_execution_manager
   sensor_msgs
   tf_conversions
   droneMsgsROS
@@ -65,10 +64,9 @@ catkin_package(
   LIBRARIES ${PROJECT_NAME}
   CATKIN_DEPENDS 
   roscpp 
-  nodelet
   std_msgs
   sensor_msgs
-  behavior_execution_controller
+  behavior_execution_manager
   tf_conversions
   geometry_msgs
   tf

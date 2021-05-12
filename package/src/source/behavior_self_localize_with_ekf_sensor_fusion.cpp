@@ -29,9 +29,15 @@
  *******************************************************************************/
 #include "../include/behavior_self_localize_with_ekf_sensor_fusion.h"
 
-namespace multi_sensor_fusion
-{
-BehaviorSelfLocalizeWithEKFSensorFusion::BehaviorSelfLocalizeWithEKFSensorFusion() : BehaviorExecutionController() {
+int main(int argc, char** argv){
+  ros::init(argc, argv, ros::this_node::getName());
+  std::cout << "Node: " << ros::this_node::getName() << " started" << std::endl;
+  BehaviorSelfLocalizeWithEKFSensorFusion behavior;
+  behavior.start();
+  return 0;
+} 
+
+BehaviorSelfLocalizeWithEKFSensorFusion::BehaviorSelfLocalizeWithEKFSensorFusion() : BehaviorExecutionManager() {
  setName("self_localize_with_ekf_sensor_fusion"); 
  setExecutionGoal(ExecutionGoals::KEEP_RUNNING);
 }
@@ -254,6 +260,3 @@ void BehaviorSelfLocalizeWithEKFSensorFusion::publishMSFOdom()
         loop_rate.sleep();
     }
 }
-
-}
-PLUGINLIB_EXPORT_CLASS(multi_sensor_fusion::BehaviorSelfLocalizeWithEKFSensorFusion, nodelet::Nodelet)

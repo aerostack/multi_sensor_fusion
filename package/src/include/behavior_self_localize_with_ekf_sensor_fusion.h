@@ -49,7 +49,6 @@
 #include "nav_msgs/Odometry.h"
 #include "geometry_msgs/PoseWithCovarianceStamped.h"
 #include "std_msgs/Float32.h"
-#include <nodelet/nodelet.h>
 #include <ros/ros.h>
 
 #include "eigen3/Eigen/Eigen"
@@ -71,11 +70,9 @@
 #include <pluginlib/class_list_macros.h>
 
 // Aerostack libraries
-#include <behavior_execution_controller.h>
+#include <BehaviorExecutionManager.h>
 
-namespace multi_sensor_fusion
-{
-class BehaviorSelfLocalizeWithEKFSensorFusion : public BehaviorExecutionController
+class BehaviorSelfLocalizeWithEKFSensorFusion : public BehaviorExecutionManager
 {
   // Constructor
 public:
@@ -83,7 +80,7 @@ public:
   ~BehaviorSelfLocalizeWithEKFSensorFusion();
 
 private:
-  // BehaviorExecutionController
+  // BehaviorExecutionManager
   void onConfigure();
   void onActivate();
   void onDeactivate();
@@ -155,6 +152,6 @@ private:
 void publishSpeedAndPose(nav_msgs::Odometry msg);
 Eigen::Vector3f ConvertToENU(geometry_msgs::Vector3Stamped msg);
 };
-}
+
 
 #endif
